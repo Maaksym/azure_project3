@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Todo List</title>
+</head>
+<body>
+    <h1>Todo List</h1>
+    <form action="/" method="POST">
+        <label for="content">Todo:</label>
+        <input type="text" id="content" name="content">
+        <label for="degree">Degree:</label>
+        <input type="text" id="degree" name="degree">
+        <button type="submit">Add Todo</button>
+    </form>
+    
+    <ul>
+        {% for todo in todos %}
+            <li>{{ todo.content }} - {{ todo.degree }} <a href="{{ url_for('delete', id=todo._id) }}">Delete</a></li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
